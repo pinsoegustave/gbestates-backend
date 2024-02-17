@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+const cors = require('cors')
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js'
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGO)
 
 const app = express();
 
+app.use(cors());
 // app.use("view engine", "ejs")
 
 app.use(express.json());
