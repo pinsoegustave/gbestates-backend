@@ -16,6 +16,10 @@ const purchaseSchema = new mongoose.Schema({
     house: {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        default: "Pending"
     }
 })
 

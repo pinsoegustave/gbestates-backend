@@ -1,4 +1,5 @@
 import Listing from "../models/listing.model.js";
+import Purchase from "../models/purchase.model.js";
 import { errorHandler } from "../utils/error.js";
 
 export const createListing = async (req, res, next) => {
@@ -65,3 +66,21 @@ export const updateListing = async (req, res, next) => {
         next(error);
     }
 };
+
+export const approve = async (req, res, next) => {
+    const list = await Purchase.findById(req.params.id);
+    console.log(req.body);
+    if(!list) {
+        return next(errorHandler(404, 'Listing not found!'));
+    }
+    try {
+        const updateOrder = await Purchase.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        res.status(200).json(updateOrder);
+    } catch (error) {
+        next(error);
+    }
+}
