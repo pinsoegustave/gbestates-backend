@@ -5,7 +5,7 @@ import { verifyToken } from '../utils/verifyUser.js';
 
 const router = express.Router();
 
-router.post('/create', verifyToken, createListing);
+router.post('/create', createListing);
 router.get('/getAllHouses', getUserListings );
 router.post('/getHouse/:id', getHouse);
 router.get('/getListing/:id', getListing);
