@@ -1,3 +1,4 @@
 .idea
 .sln
 .env
+node_modules
