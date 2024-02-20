@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: String,
         default: "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png",
+    },
+    verified: {
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true });
 
