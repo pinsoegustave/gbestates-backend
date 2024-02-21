@@ -3,10 +3,10 @@ import nodemailer from 'nodemailer';
 const verifyEmail = async (email, link) => {
     try {
         const transporter = nodemailer.createTransport({
-            // host: process.env.HOST,
+            host: process.env.HOST,
             service: process.env.SERVICE,
-            // port: Number(process.env.EMAIL_PORT),
-            // secure: Boolean(process.env.SECURE),
+            port: Number(process.env.EMAIL_PORT),
+            secure: Boolean(process.env.SECURE),
             auth: {
                 user: process.env.USER,
                 pass: process.env.PASSWORD

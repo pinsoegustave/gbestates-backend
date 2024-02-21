@@ -80,7 +80,7 @@ export const getHouse = async (req, res, next) => {
             res.status(201).json({message: "New Purchase sent"})
         });
     } catch (error) {
-        res.status(400).json({message: error.message})
+        res.status(400).json({ message: error.message})
     }
 }
 
