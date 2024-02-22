@@ -22,7 +22,19 @@ export const getListing = async (req, res, next) => {
         }
         res.status(200).json(listing)
     } catch (error) {
-        next(error)
+        next(error);
+    }
+}
+
+export const getRentHouses = async (req, res, next) => {
+    try {
+        const rentHouse = await Listing.find({ type: "rent"});
+        if (!rentHouse) {
+            return next(errorHandler(404, 'House not for rent!'));
+        }
+        res.status(200).json(rentHouse);
+    } catch (error) {
+        next(error);
     }
 }
 

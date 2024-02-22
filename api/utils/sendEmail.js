@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 
 const verifyEmail = async (email, link) => {
+    
     try {
         const transporter = nodemailer.createTransport({
             host: process.env.HOST,
@@ -14,18 +15,18 @@ const verifyEmail = async (email, link) => {
         });
 
         await transporter.sendMail({
-            from: process.env.USER,
+            from: '"GBE ESTATES" <process.env.USER>',
             to: email,
             subject: "Account Verification",
             text: "Welcome",
             html: `<div>
+            <p>Hello 🙌, thank you for signing up to GBE Real Estates. Verify your email by clicking this link below👇👇 </p>
             <a href=${link}>Click here to activate your account.</a>
                 </div>`
         });
         console.log("Email Sent Successfully!")
     } catch (error) {
         console.log("Email not sent");
-        console.log(error)
     }
 };
 
