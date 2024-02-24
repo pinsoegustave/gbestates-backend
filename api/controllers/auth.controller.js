@@ -26,7 +26,7 @@ export const signup = async(req, res, next) => {
         const link = `https://gbestates.onrender.com/api/auth/confirm/${token.token}`;
         await verifyEmail(email, link);
         res.status(200).send({
-            message: "Verification link sent, check your inbox"
+            message: "Verification link sent, check your inbox to verify!"
         })
     }
     catch (error) {
