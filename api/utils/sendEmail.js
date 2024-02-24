@@ -26,6 +26,7 @@ const verifyEmail = async (email, link) => {
         });
         console.log("Email Sent Successfully!")
     } catch (error) {
+        console.log("Email not sent");
         console.error(error);
     }
 };
