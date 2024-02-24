@@ -4,10 +4,10 @@ const verifyEmail = async (email, link) => {
     
     try {
         const transporter = nodemailer.createTransport({
-            host: process.env.HOST,
-            service: process.env.SERVICE,
-            port: Number(process.env.EMAIL_PORT),
-            secure: Boolean(process.env.SECURE),
+            host: process.env.HOST,   //gmail
+            service: process.env.SERVICE,      //smtp.gmail.com
+            port: Number(process.env.EMAIL_PORT),   //587
+            secure: Boolean(process.env.SECURE),       //true
             auth: {
                 user: process.env.USER,
                 pass: process.env.PASSWORD
@@ -26,7 +26,7 @@ const verifyEmail = async (email, link) => {
         });
         console.log("Email Sent Successfully!")
     } catch (error) {
-        console.log("Email not sent");
+        console.error(error);
     }
 };
 
