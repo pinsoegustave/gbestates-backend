@@ -93,3 +93,12 @@ export const getAllOrders = async (req, res, next) => {
         next(errorHandler(error));
     }
 }
+
+export const getAllUsers = async (req, res, next) => {
+    try {
+      const allUsers = await User.find({}).sort({ _id: -1});
+      res.status(200).json(allUsers);  
+    } catch (error) {
+        next(errorHandler(error));
+    }
+}

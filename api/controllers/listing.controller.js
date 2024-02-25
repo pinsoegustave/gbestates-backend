@@ -38,6 +38,18 @@ export const getRentHouses = async (req, res, next) => {
     }
 }
 
+export const getSaleHouses = async (req, res, next) => {
+    try {
+        const saleHouse = await Listing.find({ type: "sale"});
+        if (!saleHouse) {
+            return next(errorHandler(404, 'House not for sale!'));
+        }
+        res.status(200).json(saleHouse);
+    } catch (error) {
+        next(error);
+    }
+}
+
 export const deleteListing = async (req, res, next ) => {
     const listing = await Listing.findById(req.params.id);
 
